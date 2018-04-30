@@ -3,8 +3,16 @@
 
 An R package that infers and annotates types.
 
-## Install
+## Installation
 
-To install run the following command inside the project root directory.
+If you are a user you can install `typeR` by running the following command:
+```
+library(devtools)
+install_github('PRL-PRG/typeR')
+```
+
+If you are a developer, fork the project and make changes to your copy.
+Install your local copy by running the following command inside the
+project root directory:
 
 `R CMD INSTALL --build --with-keep.source .`
