@@ -16,5 +16,6 @@ clone_env <-
       stop(cat("length of source variable names and destination",
                "variable names must match"))
 
-    .Call("clone_env", src_env, src_varnames, dest_env, dest_varnames)
+    .Call("clone_env", PACKAGE = "typeR",
+          src_env, src_varnames, dest_env, dest_varnames)
   }

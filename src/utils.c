@@ -4,8 +4,8 @@
    to another environment.
    Promises are not forced and active bindings are preserved. */
 
-SEXP clone_env(SEXP src_env, SEXP src_varnames,
-               SEXP dest_env, SEXP dest_varnames) {
+SEXP clone_env(SEXP src_env, SEXP src_varnames, SEXP dest_env,
+               SEXP dest_varnames) {
 
     SEXP src_sym, dest_sym, value;
 
@@ -23,4 +23,11 @@ SEXP clone_env(SEXP src_env, SEXP src_varnames,
     }
 
     return dest_env;
+}
+
+SEXP is_evaluated(SEXP varname, SEXP env) {
+    SEXP promise = Rf_findVar(varname, env);
+    SEXP result = allocVector(LGLSXP, 1);
+    LOGICAL(result)[0] = PRVALUE(promise) != R_UnboundValue;
+    return result;
 }
